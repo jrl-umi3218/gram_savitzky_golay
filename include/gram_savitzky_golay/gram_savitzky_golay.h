@@ -158,7 +158,12 @@ struct GRAM_SAVITZKY_GOLAY_DLLAPI SavitzkyGolayFilter
   template<typename ContainerT>
   typename ContainerT::value_type filter(const ContainerT & v) const
   {
-    assert(v.size() == weights_.size() && v.size() > 0);
+    if(v.size() != weights_.size() || v.size() < 1)
+    {
+      throw std::runtime_error("The size of v (" + std::to_string(v.size()) + ") and the convolution weights ("
+                               + std::to_string(weights_.size())
+                               + ") must be the same. Make sure that 2*m+1 = v.size()");
+    }
     using T = typename ContainerT::value_type;
     T res = weights_[0] * v[0];
     for(size_t i = 1; i < v.size(); ++i)

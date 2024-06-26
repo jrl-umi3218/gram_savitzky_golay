@@ -167,3 +167,25 @@ BOOST_AUTO_TEST_CASE(TestPolynomialDerivative)
   BOOST_REQUIRE_CLOSE(result_order1, expected_result_order1, 10e-8);
   BOOST_REQUIRE_CLOSE(result_order2, expected_result_order2, 10e-8);
 }
+
+// Test derivation on a known polynomial function
+BOOST_AUTO_TEST_CASE(TestWrongWindowSize)
+{
+  auto vec = std::vector<double>(300, 0);
+  BOOST_REQUIRE_EQUAL(vec.size(), 300);
+
+  // Window size is 2*m+1
+  const size_t m = 151;
+  // Polynomial Order
+  const size_t n = 6;
+  // Initial Point Smoothing (ie evaluate polynomial at first point in the window)
+  // Points are defined in range [-m;m]
+  const size_t t = m;
+  // Derivation order? 0: no derivation, 1: first derivative, 2: second derivative...
+  const int d = 0;
+
+  // Real-time filter (filtering at latest data point)
+  gram_sg::SavitzkyGolayFilter filter(m, t, n, d);
+  // Filter some data
+  BOOST_REQUIRE_THROW(filter.filter(vec), std::runtime_error);
+}

@@ -1,7 +1,7 @@
 # Copyright 2017-2018 CNRS-UM LIRMM
 # Copyright 2017-2018 Arnaud TANGUY <arnaud.tanguy@lirmm.fr>
 
-cmake_minimum_required(VERSION 3.1)
+cmake_minimum_required(VERSION 3.5)
 
 set(PROJECT_NAME gram_savitzky_golay)
 set(PROJECT_DESCRIPTION "Implementation of Savitzky-Golay Filtering using Peter A. Gory Gram Polynomials method")

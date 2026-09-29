@@ -5,8 +5,18 @@ on:
     - package-master
     - package-release
   push:
+    paths-ignore:
+    - README.md
+    - ".github/workflows/build.yml"
+    - ".github/workflows/nix.yml"
+    - ".pre-commit-config.yaml"
     branches:
     - master
+    tags:
+    - v*
+  pull_request:
+    branches:
+    - "**"
 jobs:
   package:
     uses: jrl-umi3218/github-actions/.github/workflows/package-project.yml@master

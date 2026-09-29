@@ -6,7 +6,7 @@ cmake_minimum_required(VERSION 3.22)
 set(PROJECT_NAME gram_savitzky_golay)
 set(PROJECT_DESCRIPTION "Implementation of Savitzky-Golay Filtering using Peter A. Gory Gram Polynomials method")
 set(PROJECT_URL "https://github.com/arntanguy/gram_savitzky_golay")
-set(PROJECT_VERSION 1.0.1)
+set(PROJECT_VERSION 1.0.2)
 set(PROJECT_DEBUG_POSTFIX "_d")
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(PROJECT_USE_KEYWORD_LINK_LIBRARIES TRUE)
@@ -21,7 +21,7 @@ option(BUILD_TESTS "Build unit tests" ON)
 include(cmake/base.cmake)
 include(cmake/msvc-specific.cmake)
 
-project(${PROJECT_NAME} LANGUAGES CXX)
+project(${PROJECT_NAME} LANGUAGES CXX VERSION ${PROJECT_VERSION})
 
 # For MSVC, set local environment variable to enable finding the built dll
 # of the main library when launching ctest with RUN_TESTS

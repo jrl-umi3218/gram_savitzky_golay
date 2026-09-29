@@ -1,3 +1,9 @@
+gram-savitzky-golay (1.0.2-1trusty1) trusty; urgency=medium
+
+  * New release: version 1.0.2
+
+ -- Arnaud TANGUY <arn.tanguy@gmail.com>  Tue, 29 Sep 2026 14:49:20 +0200
+
 gram-savitzky-golay (1.0.1-1trusty1) trusty; urgency=medium
 
   * Upstream changes
